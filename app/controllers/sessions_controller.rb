@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    use = User.find_by(email: params[:session][:email].downcase) # sessionの箱の中のemailを取り出す
+    user = User.find_by(email: params[:session][:email].downcase) # sessionの箱の中のemailを取り出す
     if user && user.authenticate(params[session][:password])
+      
     else
+      flash.now[:danger] = '認証に失敗しました。'
       render :new
     end
   end
