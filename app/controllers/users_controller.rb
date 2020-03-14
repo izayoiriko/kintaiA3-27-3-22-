@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   
   def show
@@ -44,10 +44,10 @@ class UsersController < ApplicationController
     end
     
     def logged_in_user
-      if logged_in?
+      unless logged_in?
         store_location
         flash[:danger] = "ログインしてください。"
-        reditect_to login_url
+        redirect_to login_url
       end
     end
     
