@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase) # sessionの箱の中のemailを取り出す
     if user && user.authenticate(params[:session][:password])
       log_in user
-      remember user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
       flash.now[:danger] = '認証に失敗しました。'
