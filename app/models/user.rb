@@ -18,9 +18,9 @@ class User < ApplicationRecord
       if ActiveModel::SecurePassword.min_cost
         BCrypt::Engine::MIN_COST
       else
-        BCrypt::Engine.create(string, cost: cost)
+        BCrypt::Engine.cost
       end
-    BCrypt::Password.urlsafe_base64
+    BCrypt::Password.create(string, cost: cost)
   end
   
   # ランダムなトークンを返す
