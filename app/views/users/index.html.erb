@@ -1,7 +1,8 @@
-<% provide(:title, 'All Users' %>
+<% provide(:title, 'All Users') %>
 <h1>ユーザー一覧</h1>
 
 <div class="col-md-10 col-md-offset-1">
+  <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
@@ -13,7 +14,7 @@
       <tr>
         <td><%= link_to user.name, user %></td>
       </tr>
-      <% end %>
+    <% end %>
   </table>
+  <%= will_paginate %>
 </div>
-    
