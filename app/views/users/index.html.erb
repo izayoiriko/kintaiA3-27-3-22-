@@ -34,7 +34,7 @@
           <% if current_user.admin? && !current_user?(user) %>
             <%= link_to "基本情報編集", edit_basic_info_user_path(user), remote: true, class: "btn btn-success" %>
             <%= link_to "削除", user, method: :delete,
-                data: { confirm: "削除してもよろしいですか？"},class: "btn btn-danger" %>
+                data: { confirm: "削除してもよろしいですか？"}, class: "btn btn-danger" %>
           <% end %>
         </td>
       </tr>
@@ -44,5 +44,4 @@
 </div>
 
 <!--モーダルウインドウ-->
-<div id="edit-basic-info" class="model fade" tabindex="-1" role="dialog" area-hidden="true"></div>
-
+<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" area-hidden="true"></div>
