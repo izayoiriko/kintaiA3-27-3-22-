@@ -29,5 +29,11 @@ class AttendancesController < ApplicationController
   end
   
   def update_one_month
+    
   end
+  private
+  # 1か月分の勤怠情報
+    def attendances_params
+      params.require(:user).permit(attendances: [:started_at, :finished_at, :note])[:attendances]
+    end
 end
