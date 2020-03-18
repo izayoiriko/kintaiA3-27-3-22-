@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   before_action :set_one_month, only: :show
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 20 )
+    
+    @users = User.paginate(page: params[:page], per_page: 20)
+    if params[:search].present? 
+      @users = User.name_search(params[:search])
+    end
   end
   
   def show
