@@ -59,10 +59,24 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
-  def edit_all
+  def edit_basic_ad
     @user = User.find(params[:id])
+  end 
+  
+  def update_basic_ad
+    @user = User.find(params[:id])
+    @users = User.all
+    @users.each do |users|
+      unless users.update_attributes(basic_info_params)
+        
+      
+      end
+      flash[:success] = "全ユーザー基本と指定を更新"
+    end
+    redirect_to user_url(@user)
   end
   
+
   private
   
     def user_params
