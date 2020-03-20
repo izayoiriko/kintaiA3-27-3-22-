@@ -66,13 +66,17 @@ class UsersController < ApplicationController
   def update_basic_ad
     @user = User.find(params[:id])
     @users = User.all
+    
     @users.each do |users|
-      unless users.update_attributes(basic_info_params)
+       
+      unless users.update_attributes(basic_ad_params)
+        flash[:danger] = "更新できませんでした。<br>" + @user.errors.full_messages.join("<br>")
         
-      
+        render 'edit_basic_ad' and return
+      else
       end
-      flash[:success] = "全ユーザー基本と指定を更新"
     end
+    flash[:success] = "更新できました"
     redirect_to user_url(@user)
   end
   
@@ -85,5 +89,9 @@ class UsersController < ApplicationController
     
     def basic_info_params
       params.require(:user).permit(:department, :basic_time, :work_time)
+    end
+    
+    def basic_ad_params
+      params.require(:user).permit(:basic_time, :work_time)
     end
 end
