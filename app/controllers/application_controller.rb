@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to root_url unless current_user.admin?
   end
+  
+  def admin_or_corect_user
+    @user = User.find(params[:user_id]) if @user.blank?
+    unless current_user?(@user) || current_user.admin?
+      flash[:danger] = "編集権限がありません。"
+      redirect_to(root_url)
+    end
+  end
 
   
   # ページ出力前に1か月分のデータの存在を確認・セットします。
