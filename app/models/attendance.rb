@@ -9,6 +9,8 @@ class Attendance < ApplicationRecord
   
   validate :started_at_than_finished_at_fast_if_invalid
   
+  validate :started_at_only
+  # 1
   def finished_at_is_invalid_without_a_started_at
     errors.add(:started_at, "が必要です") if started_at.blank? && finished_at.present?
   end
@@ -16,6 +18,21 @@ class Attendance < ApplicationRecord
   def started_at_than_finished_at_fast_if_invalid
     if started_at.present? && finished_at.present?
       errors.add(:started_at, "より早い退勤時間は無効です") if started_at > finished_at
+    end
+  end
+  # 1
+  def started_at_only
+    if started_at.present? && finished_at.blank?
+      errors.add(:finished_at, "が必要です") if started_at.day < Date.current.day
+    end
+  end
+  
+  def attendances_valid?
+    if started_at.blank? && finished_at.blank?
+    elsif started_at.blank? || finished_at.blank?
+      errors.add(:finished_at, "が必要です")
+    elsif started_at > finished_at
+      errors.add(:started_at, "より早い退勤時間は無効です")
     end
   end
 end
