@@ -26,11 +26,14 @@
 <div class="btn-users-show">
   <tr>
     <td><%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-primary" %></td>
-    <td><%= link_to "CSV出力", '#' %></td>
+    <td><%= link_to "CSV出力", '#', class: "btn btn-primary" %></td>
   </tr>
+  <div>
   <tr>
-    <td><%= link_to "勤怠修正ログ（承認済み）", '#' %></td>
+    <td><%= link_to "勤怠修正ログ（承認済み）", '#', class: "btn btn-primary" %></td>
   </tr>
+    
+  </div>
   
 </div>
     
@@ -69,7 +72,7 @@
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
-          <td></td>
+          <td><%= link_to "残業申請", '#', class: "btn btn-primary" %></td>
           <td><%= l(day.worked_on, format: :short) %></td>
           <td class = "<%= "sat" if day.worked_on.saturday? %>
                        <%= "sun" if day.worked_on.sunday? %>">
