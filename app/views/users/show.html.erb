@@ -24,15 +24,23 @@
 </div>
 
 <div class="btn-users-show">
-  <%= link_to "1か月の勤怠編集へ", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-success" %>
+  <tr>
+    <td><%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-primary" %></td>
+    <td><%= link_to "CSV出力" %></td>
+  </tr>
+  <tr>
+    <td><%= link_to "勤怠修正ログ（承認済み）" %></td>
+  </tr>
+  
 </div>
     
 <div>
   <table class="table table-bordered table-condensed table-hover" id="table-attendances">
     <thead>
       <tr>
-        <th rowspan="2">日付</th>
-        <th rowspan="2">曜日</th>
+        <th rowspan="2"></th>
+        <th rowspan="3">日付</th>
+        <th rowspan="3">曜日</th>
         <th colspan="8">【実績】</th>
         <th colspan="5">所定外勤務</th>
       </tr>
@@ -47,17 +55,21 @@
         <th rowspan="2">指示確認</th>
       </tr>
       <tr>
+        <td>残業申請</td>
         <td>時</td>
         <td>分</td>
         <td></td>
         <td>時</td>
         <td>分</td>
         <td></td>
+        <td>時</td>
+        <td>分</td>
       </tr>
     </thead>
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
+          <td></td>
           <td><%= l(day.worked_on, format: :short) %></td>
           <td class = "<%= "sat" if day.worked_on.saturday? %>
                        <%= "sun" if day.worked_on.sunday? %>">
@@ -85,6 +97,11 @@
             <% end %>
           </td>
           <td><%= day.note %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       <% end %>
     </tbody>
@@ -92,15 +109,12 @@
     <tfoot>
       <!--rowspan:縦結合、 colspan:横結合-->
       <tr>
-        <td colspan="2">累計日数</td>
-        <td colspan="2">総合勤務時間</td>
-        <td colspan="2">累計在社時間</td>
-        <td rowspan="2"></td>
-      </tr>
-      <tr>
+        <td colspan="1"></td>
         <td colspan="2"><%= @attendances.count %></td>
-        <td colspan="2"><%= format_basic_info(@user.work_time).to_f * @worked_sum %></td>
-        <td colspan="2"><%= format("%.2f", @total_working_times.to_f) %></td>
+        <td colspan="6"><%= format_basic_info(@user.work_time).to_f * @worked_sum %></td>
+        <td colspan="1">累計在社時間<%= format("%.2f", @total_working_times.to_f) %></td>
+        <td colspan="5"></td>
+        <td colspan="1"></td>
       </tr>
     </tfoot>
   </table>
