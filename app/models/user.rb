@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  generate_public_uid generator: PublicUid::Generators::HexStringSecureRandom.new(7)
   
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
