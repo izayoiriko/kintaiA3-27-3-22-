@@ -79,6 +79,11 @@ class UsersController < ApplicationController
     redirect_to user_url(@user)
   end
   
+  def edit_over_time
+  end
+  
+  def new_over_time
+  end
 
   private
   
