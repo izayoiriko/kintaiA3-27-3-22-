@@ -138,9 +138,9 @@
         <td colspan="5"></td>
         <td colspan="1">
           所属長承認　未
-          <div>
-            <select><%= User.name %></select>
-          </div>
+          <%= form_for @user do |u| %>
+            <%= u.collection_select :name, User.all, :name, :name %>
+          <% end %>
           <%= link_to "申請", '#', class: "btn btn-default btn-primary" %>
             
         </td>
