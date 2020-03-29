@@ -139,7 +139,7 @@
         <td colspan="1">
           所属長承認　未
           <%= form_for @user do |u| %>
-            <%= u.collection_select :name, User.all, :name, :name %>
+            <%= u.collection_select :name, User.where(superior: true), :name, :name, :include_blank => true %>
           <% end %>
           <%= link_to "申請", '#', class: "btn btn-default btn-primary" %>
             
