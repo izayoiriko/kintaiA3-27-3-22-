@@ -1,0 +1,24 @@
+<% provide(:title, "拠点一覧")%>
+
+<h1>拠点一覧</h1>
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td></td>
+      <td></td>
+      <td>拠点番号</td>
+      <td>拠点名</td>
+      <td>勤怠種類</td>
+    </tr>
+    <tr>
+      <td><%= link_to "修正", '#', class: "btn btn-default btn-primary" %></td>
+      <td><%= link_to "削除", '#', class: "btn btn-default btn-primary" %></td>
+      <td><%=%></td>
+      <td><%=%></td>
+      <td><%=%></td>
+    </tr>
+  </table>
+  <div class="base-table">
+    <%= link_to "拠点情報修正", '#', class: "btn btn-default btn-primary" %>
+  </div>
+</div>

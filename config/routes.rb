@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users do 
     member do
+      get 'index_base'
       get 'index_employees'
       get 'edit_over_time'
       patch 'update_over_time'

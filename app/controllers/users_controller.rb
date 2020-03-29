@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   def index_employees
   end
   
+  def index_base
+  end
+  
   def show
     @worked_sum = @attendances.where.not(started_at: nil).count
   end
