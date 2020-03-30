@@ -42,8 +42,8 @@
         </td>
         <td class="center"><%= user.affiliation.present? ? user.affiliation : "未所属" %></td>
         <% if current_user.admin? %>
-          <td class="center"><%= format_basic_info(user.basic_time) %></td>
-          <td class="center"><%= format_basic_info(user.work_time) %></td>
+          <td class="center"><%= format_basic_info(user.designated_work_start_time) %></td>
+          <td class="center"><%= format_basic_info(user.basic_work_time) %></td>
         <% end %>
         <td class="center">
             <%= link_to "基本情報編集", edit_basic_info_user_path(user), remote: true, class: "btn btn-success" %>
