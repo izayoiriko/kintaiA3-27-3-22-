@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users do 
+    collection { post :import }
     member do
+      
       get 'index_base'
       get 'index_employees'
       get 'edit_over_time'

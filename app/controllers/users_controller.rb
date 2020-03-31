@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     @users = @users.paginate(page: params[:page], per_page: 20)
   end
   
+  def import
+    User.import(params[:file])
+    redirect_to users_url
+  end
+  
   def index_employees
   end
   
