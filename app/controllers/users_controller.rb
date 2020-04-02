@@ -6,9 +6,19 @@ class UsersController < ApplicationController
   before_action :admin_or_corect_user, only: :show
   before_action :set_one_month, only: :show
 
+  # def index
+  #   @users = params[:search].present? ? User.name_search(params[:search]) : User.all
+  #   @users = @users.paginate(page: params[:page], per_page: 20)
+  # end
   def index
-    @users = params[:search].present? ? User.name_search(params[:search]) : User.all
-    @users = @users.paginate(page: params[:page], per_page: 20)
+    @users = User.all
+      respond_to do |format|
+        format.html do
+        end 
+        format.csv do
+          send_data render_to_string, filename: "(ファイル名).csv", type: :csv
+        end
+      end
   end
   
   def import
