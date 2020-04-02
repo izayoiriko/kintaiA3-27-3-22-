@@ -23,6 +23,13 @@
       <th>ID</th>
       <th>名前</th>
       <th>メール</th>
+      <th>所属</th>
+      <th>社員番号</th>
+      <th>カードID</th>
+      <th>パスワード</th>
+      <th>基本勤務時間</th>
+      <th>指定勤務開始時間</th>
+      <th>指定勤務終了時間</th>
     </tr>
   </thead>
 
@@ -32,6 +39,14 @@
         <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.affiliation %></td>
+        <td><%= user.employees_number %></td>
+        <td><%= user.public_uid %></td>
+        <td><%= user.password %></td>
+        <td><%= user.basic_work_time %></td>
+        <td><%= user.designated_work_start_time %></td>
+        <td><%= user.designated_work_end_time %></td>
+        
       </tr>
     <% end %>
   </tbody>
