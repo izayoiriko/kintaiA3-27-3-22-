@@ -1,4 +1,8 @@
-    
+  <% if params[:search].present? %>
+    <h1>検索結果</h1>
+  <% else %>
+    <h1>ユーザー一覧</h1>
+  <% end %>    
 <div class="row container">
   <div class="col-md-4 col-md-offset-8">
     <%= form_with(class: 'search_form', method: :get, local: true) do |f| %>
