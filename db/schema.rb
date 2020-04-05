@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20200405085957) do
     t.string "base_name"
     t.string "base_number"
     t.string "base_kind"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,11 +42,11 @@ ActiveRecord::Schema.define(version: 20200405085957) do
     t.string "remember_digest"
     t.boolean "admin", default: false
     t.string "affiliation"
-    t.datetime "designated_work_start_time", default: "2020-04-04 23:00:00"
-    t.datetime "basic_work_time", default: "2020-04-04 22:30:00"
+    t.datetime "designated_work_start_time", default: "2020-04-05 23:00:00"
+    t.datetime "basic_work_time", default: "2020-04-05 22:30:00"
     t.boolean "superior", default: false
     t.string "public_uid"
-    t.datetime "designated_work_end_time", default: "2020-04-05 10:00:00"
+    t.datetime "designated_work_end_time", default: "2020-04-06 10:00:00"
     t.string "employees_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["public_uid"], name: "index_users_on_public_uid", unique: true

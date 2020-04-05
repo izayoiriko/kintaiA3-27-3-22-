@@ -11,7 +11,7 @@
       <td>勤怠種類</td>
     </tr>
     <tr>
-      <td><%= link_to "修正", edit_user_basis_path(current_user, @base), class: "btn btn-default btn-primary" %></td>
+      <td><%= link_to "修正", edit_user_basis_path(current_user, 1), class: "btn btn-default btn-primary" %></td>
       <td><%= link_to "削除", '#', class: "btn btn-default btn-primary" %></td>
       <td><%=%></td>
       <td><%=%></td>
@@ -19,6 +19,6 @@
     </tr>
   </table>
   <div class="base-table">
-    <%= link_to "拠点情報追加", new_user_basis_path(current_user), class: "btn btn-default btn-primary" %>
+    <%= link_to "拠点情報追加", new_user_basis_path, class: "btn btn-default btn-primary" %>
   </div>
 </div>

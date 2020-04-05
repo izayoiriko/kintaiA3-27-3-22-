@@ -4,10 +4,11 @@ class BasesController < ApplicationController
   end
   
   def edit
-    @base = Base.find(params[:id])
+    @base = User.find(params[:id])
   end
   
   def new
+    
   end
   
   private
