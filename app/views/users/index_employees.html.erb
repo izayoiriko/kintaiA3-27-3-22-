@@ -11,7 +11,7 @@
     <!--each do ||-->
   <% @users.each do |user| %>
     <% user.attendances.each do |attendance| %>
-  
+    <!--もしユーザーの中で出勤があり、退勤がない　　表示-->
       <% if attendance.started_at.present? && attendance.finished_at.nil? %>
         <tr>
           <td><%= user.employees_number %></td>
@@ -20,7 +20,5 @@
       <% end %>
     <% end %>
   <% end %>   
-    <!--if文　出勤・退勤の有無--表示非表示-->
-    <!--もしユーザーの中で出勤があり、退勤がない　　表示-->
   </table>
 </div>
