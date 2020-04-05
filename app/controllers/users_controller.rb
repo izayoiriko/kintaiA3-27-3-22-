@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   #   @users = @users.paginate(page: params[:page], per_page: 20)
   # end
   def index
+    
     @users = User.all
       respond_to do |format|
         format.html do
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   end
   
   def index_employees
+    @users = User.all.includes(:attendances)
   end
   
   def index_base

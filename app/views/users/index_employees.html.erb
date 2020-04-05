@@ -8,12 +8,19 @@
       <td>社員番号</td>
       <td>名前</td>
     </tr>
-    
     <!--each do ||-->
+  <% @users.each do |user| %>
+    <% user.attendances.each do |attendance| %>
+  
+      <% if attendance.started_at.present? && attendance.finished_at.nil? %>
+        <tr>
+          <td><%= user.employees_number %></td>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>   
     <!--if文　出勤・退勤の有無--表示非表示-->
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
+    <!--もしユーザーの中で出勤があり、退勤がない　　表示-->
   </table>
 </div>
