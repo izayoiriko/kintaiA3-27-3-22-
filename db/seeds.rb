@@ -30,3 +30,8 @@ end
                password_confirmation: password,
                employees_number: employees_number)
 end
+
+Base.create!(user_id: "1",
+             base_name: "H!P",
+             base_number: "1995",
+             base_kind: "アイドル")
