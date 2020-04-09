@@ -6,17 +6,19 @@
     <tr>
       <td></td>
       <td></td>
-      <td>拠点番号</td>
+      <td><%= :base_name %></td>
       <td>拠点名</td>
       <td>勤怠種類</td>
     </tr>
-    <tr>
-      <td><%= link_to "修正", edit_user_basis_path(current_user, 1), class: "btn btn-default btn-primary" %></td>
-      <td><%= link_to "削除", '#', class: "btn btn-default btn-primary" %></td>
-      <td><%=%></td>
-      <td><%=%></td>
-      <td><%=%></td>
-    </tr>
+    <% @bases.each do |base|%>
+      <tr>
+        <td><%= link_to "修正", edit_user_basis_path(current_user, 1), class: "btn btn-default btn-primary" %></td>
+        <td><%= link_to "削除", '#', class: "btn btn-default btn-primary" %></td>
+        <td><%= base.base_name %></td>
+        <td><%= base.base_number %></td>
+        <td><%= base.base_kind %></td>
+      </tr>
+    <% end %>
   </table>
   <div class="base-table">
     <%= link_to "拠点情報追加", new_user_basis_path, class: "btn btn-default btn-primary" %>

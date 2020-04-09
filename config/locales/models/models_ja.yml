@@ -23,4 +23,7 @@ ja:
           finished_at: 退勤時間
           note: 備考
           user: ユーザー
-         
+        base:
+          base_name: 社員番号
+          base_number: 拠点名
+          base_kind: 勤怠種類

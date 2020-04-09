@@ -1,6 +1,7 @@
 class BasesController < ApplicationController
   
   def index
+    @bases = Base.all
   end
   
   def edit
@@ -16,7 +17,7 @@ class BasesController < ApplicationController
     @base = Base.new(base_params)
     if @base.save
       flash[:success] = "新規拠点の作成に成功しました。"
-      redirect_to @base #user_url(@user)
+      redirect_to user_bases_url
     else
       render :new
     end
