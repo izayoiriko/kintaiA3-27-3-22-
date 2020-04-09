@@ -14,7 +14,7 @@ class BasesController < ApplicationController
   
   def create
     @base = Base.new(base_params)
-    if @user.save
+    if @base.save
       flash[:success] = "新規拠点の作成に成功しました。"
       redirect_to @base #user_url(@user)
     else
