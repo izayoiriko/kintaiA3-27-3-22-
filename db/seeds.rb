@@ -31,7 +31,7 @@ end
                employees_number: employees_number)
 end
 
-Base.create!(user_id: "1",
+Base.create!(
              base_name: "H!P",
              base_number: "1995",
              base_kind: "アイドル")
