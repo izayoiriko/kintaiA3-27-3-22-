@@ -14,6 +14,7 @@ class BasesController < ApplicationController
       flash[:success] = "拠点情報を更新しました。"
       redirect_to bases_path
     else
+      flash[:danger] = "空欄を埋めてください"
       render :edit
     end    
   end
@@ -29,6 +30,7 @@ class BasesController < ApplicationController
       flash[:success] = "新規拠点の作成に成功しました。"
       redirect_to bases_url
     else
+      flash[:danger] = "情報をすべて入力してください"
       render :new
     end
   end

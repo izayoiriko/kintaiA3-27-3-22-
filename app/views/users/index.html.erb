@@ -18,10 +18,13 @@
   <p>Example</p>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name unless user.admin? %></br>
-          
+        <tb><%= user.name unless user.admin? %></tb>
+      </tr>
+        
+      <tr>
+        
         <% if current_user.admin? && !current_user?(user) %>
-          <ul>|
+          <ul class="acordion">|
             <%= link_to "削除", user, method: :delete,
                 data: { confirm: "削除してもよろしいですか？"}, class: "btn btn-primary" %>
           </ul>
