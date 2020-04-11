@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   #   @users = @users.paginate(page: params[:page], per_page: 20)
   # end
   def index
-    
+    @user = User.all
     @users = User.all
       respond_to do |format|
         format.html do
@@ -57,6 +57,7 @@ class UsersController < ApplicationController
   end
   
   def update
+    
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
       redirect_to @user
