@@ -13,7 +13,7 @@
     <% @base.each do |base|%>
       <tr>
         <td><%= link_to "修正", edit_basis_path(base), class: "btn btn-default btn-primary" %></td>
-        <td><%= link_to "削除", '#', class: "btn btn-default btn-primary" %></td>
+        <td><%= link_to "削除", base, method: :delete, data: { confirm: "削除してよろしいでござるか？"}, class: "btn btn-default btn-primary" %></td>
         <td><%= base.base_name %></td>
         <td><%= base.base_number %></td>
         <td><%= base.base_kind %></td>
