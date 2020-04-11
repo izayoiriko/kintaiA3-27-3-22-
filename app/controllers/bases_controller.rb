@@ -12,7 +12,7 @@ class BasesController < ApplicationController
     @base = Base.find(params[:id])
     if @base.update_attributes(base_params)
       flash[:success] = "拠点情報を更新しました。"
-      redirect_to @base
+      redirect_to bases_path
     else
       render :edit
     end    
