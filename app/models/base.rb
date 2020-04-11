@@ -1,7 +1,7 @@
 class Base < ApplicationRecord
 
   
-  validates :base_name, presence: false
-  validates :base_number, presence: false
-  validates :base_kind, presence: false
+  validates :base_name, presence: true
+  validates :base_number, presence: true
+  validates :base_kind, presence: true
 end

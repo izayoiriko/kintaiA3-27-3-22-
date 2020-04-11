@@ -27,7 +27,7 @@ class BasesController < ApplicationController
     @base = Base.new(base_params)
     if @base.save
       flash[:success] = "新規拠点の作成に成功しました。"
-      redirect_to user_bases_url
+      redirect_to bases_url
     else
       render :new
     end
