@@ -7,11 +7,10 @@ Rails.application.routes.draw do
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  resources :bases
   resources :users do 
     collection { post :import }
     member do
-      
-      get 'index_base'
       get 'index_employees'
       get 'edit_over_time'
       patch 'update_over_time'
@@ -23,7 +22,7 @@ Rails.application.routes.draw do
       patch 'attendances/update_one_month'
     end
     resources :attendances, only: :update
-    resources :bases
+    
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
