@@ -1,11 +1,11 @@
 class BasesController < ApplicationController
   
   def index
-    @bases = Base.all
+    @base = Base.all
   end
   
   def edit
-    @bases = Base.find(params[:id])
+    @base = Base.find(params[:id])
   end
   
   def update
