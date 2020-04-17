@@ -11,11 +11,10 @@ class UsersController < ApplicationController
   #   @users = @users.paginate(page: params[:page], per_page: 20)
   # end
   def index
-    @user = User.all
     @users = User.all
       respond_to do |format|
         format.html do
-        end 
+        end
         format.csv do
           send_data render_to_string, filename: "(ファイル名).csv", type: :csv
         end

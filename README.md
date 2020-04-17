@@ -58,3 +58,32 @@
 
 <!--モーダルウインドウ-->
 <div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" area-hidden="true"></div>
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+        user:
+          id: ID
+          name: 名前
+          email: メールアドレス
+          affiliation: 所属
+          basic_time: 基本時間
+          work_time: 勤務時間
+          password: パスワード
+          password_confirmation: パスワード再入力
+          created_at: 作成日
+          updated_at: 更新日
+          designated_work_start_time: 指定勤務開始時間
+          basic_work_time: 基本時間
+          designated_work_end_time: 指定勤務終了時間
+        attendance:
+          worked_on: 日付
+          started_at: 出勤時間
+          finished_at: 退勤時間
+          note: 備考
+          user: ユーザー
+        base:
+          base_name: 社員番号
+          base_number: 拠点名
+          base_kind: 勤怠種類

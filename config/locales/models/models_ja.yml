@@ -8,6 +8,8 @@ ja:
           name: 名前
           email: メールアドレス
           affiliation: 所属
+          employees_number: 社員番号
+          public_uid: ユーザーID
           basic_time: 基本時間
           work_time: 勤務時間
           password: パスワード
@@ -17,7 +19,7 @@ ja:
           designated_work_start_time: 指定勤務開始時間
           basic_work_time: 基本時間
           designated_work_end_time: 指定勤務終了時間
-        attendance: 
+        attendance:
           worked_on: 日付
           started_at: 出勤時間
           finished_at: 退勤時間
