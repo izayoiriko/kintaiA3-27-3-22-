@@ -64,11 +64,12 @@ class UsersController < ApplicationController
   end
   
   def update
-    
+    @users = User.all
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
       redirect_to users_url
     else
+      flash[:danger] = "更新はfalseです"
       render :index
     end
   end
