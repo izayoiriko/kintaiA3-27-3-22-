@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit_basic_ad, :update_basic_ad]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info, :edit_basic_ad, :update_basic_ad]
-  before_action :correct_user, only: [:edit, :update]
+  # before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy, :edit_basic_info, :update_basic_info, :edit_basic_ad, :update_basic_ad]
   before_action :admin_or_corect_user, only: :show
   before_action :set_one_month, only: :show
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   #   @users = @users.paginate(page: params[:page], per_page: 20)
   # end
   def index
+   
+    
     @users = User.all
       respond_to do |format|
         format.html do
@@ -19,6 +21,15 @@ class UsersController < ApplicationController
           send_data render_to_string, filename: "(ファイル名).csv", type: :csv
         end
       end
+      
+      if params[:id].present?
+        @user = User.find_by(id: @users.id)
+      else
+        @user = User.new
+      end
+
+      
+    
   end
   
   def import
@@ -59,9 +70,9 @@ class UsersController < ApplicationController
     
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
-      redirect_to @user
+      redirect_to users_url
     else
-      render :edit
+      render :index
     end
   end
   
@@ -111,7 +122,16 @@ class UsersController < ApplicationController
   private
   
     def user_params
-      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation)
+      params.require(:user).permit(:name, 
+                                   :email, 
+                                   :affiliation, 
+                                   :employees_number, 
+                                   :public_uid,
+                                   :password, 
+                                   :password_confirmation, 
+                                   :basic_work_time,
+                                   :designated_work_start_time,
+                                   :designated_work_end_time)
     end
     
     def basic_info_params
