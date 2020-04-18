@@ -27,9 +27,6 @@ class UsersController < ApplicationController
       else
         @user = User.new
       end
-
-      
-    
   end
   
   def import
