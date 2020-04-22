@@ -112,6 +112,8 @@ class UsersController < ApplicationController
   end
   
   def edit_over_time
+    @user = User.find(params[:id])
+    @attendance = Attendance.find_by(params[:worked_on])
   end
   
   def new_over_time

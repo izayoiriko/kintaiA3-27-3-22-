@@ -9,38 +9,39 @@
       <h1 class="modal-title">残業申請</h1>
     </div>
     <div class="modal-body">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <table class="table table-bordered table-condensed user-table">
-            
-            <tr>
-              <td>日付</td>
-              <td>曜日</td>
-              <td>終了時間</td>
-              <td>翌日</td>
-              <td>業務処理内容</td>
-              <td>指示書確認㊞</td>
-            </tr>
-            <tr>
-              <td><%="date"%></td>
-              <td><%="wday"%></td>
-              <td><%=""%></td>
-              <td><%=""%></td>
-              <td><%=""%></td>
-              <td><%=""%></td>
-              
-            </tr>
+          <table class="table table-bordered table-overtime">
+      
+        
+        
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>曜日</th>
+                <th>終了時間（必須）</th>
+                <th>翌日</th>
+                <th>業務内容</th>
+                <th>確認（必須）</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+                
+            </tbody>
           </table>
-          
-
-            <div class="center">
-              
-              <button type="button" class="btn btn-default btn-over-time" data-dismiss="modal">
-                キャンセル
-              </button>
-            </div>
         </div>
-      </div>
-    </div>
+          
+        <div class="modal-footer">
+          <button type= "button" class="btn btn-primary btn -block">残業申請</button>
+        </div>
+    
+
   </div>
 </div>
